@@ -22,8 +22,9 @@ docker-build:
 docker-run:
 	$(DOCKER) run -it --rm \
 		--name $(DOCKER_CONTAINER_NAME) \
-		--volume $(AWS_CONF_DIR):~/.aws:ro \
-		$(DOCKER_IMAGE_NAME)
+		-p 8000:8000 \
+		--volume ${HOME}/.aws:/app/.aws:ro \
+		$(DOCKER_IMAGE_NAME) ${AWS_REGION} ${RDS_SERVER}
 
 #		--env AWS_ACCESS_KEY_ID=$(AWS_ACCESS_KEY_ID) \
 #		--env AWS_SECRET_ACCESS_KEY=$(AWS_SECRET_ACCESS_KEY) \
