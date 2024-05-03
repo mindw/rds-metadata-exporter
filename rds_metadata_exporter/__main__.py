@@ -1,17 +1,24 @@
 from prometheus_client import start_wsgi_server
 from prometheus_client.core import Histogram, CounterMetricFamily, InfoMetricFamily, REGISTRY
 from prometheus_client.registry import Collector
-import time
-import botocore.session
 import argparse
+import botocore.session
+import signal
+import time
 
 h = Histogram('collect_duration', 'Description of histogram', unit="seconds")
+run = True
+
+
+def handler_stop_signals(signum, frame):
+    global run
+    run = False
 
 
 class RdsCollector(Collector):
-    def __init__(self, rds_instance: str, region: str):
+    def __init__(self, rds_instance: str, region: str | None, profile: str | None):
         self.rds_instance = rds_instance
-        self.session = botocore.session.get_session()
+        self.session = botocore.session.Session(profile=profile)
         self.client = self.session.create_client('rds', region_name=region)
 
     @h.time()
@@ -60,22 +67,30 @@ class RdsCollector(Collector):
 
 def main():
     parser = argparse.ArgumentParser(
-        prog='rds_metadata_exporter',
-        description='What the program does'
+        prog='rds-metadata-exporter',
+        description='Exposes a RDSs postgres server description as Prometheus metrics'
     )
-    parser.add_argument('region')
+    parser.add_argument('--profile', help='optional profile')
+    parser.add_argument('-r', '--region', help='optional profile')
     parser.add_argument('dbinstance')
     parser.add_argument('-p', '--port', default=8000)
     args = parser.parse_args()
 
+    print(f"rds-metadata-exporter started with arguments {args}")
     # Start up the server exposing the metrics.
-    rds_collector = RdsCollector(args.dbinstance, args.region)
+    rds_collector = RdsCollector(args.dbinstance, args.region, args.profile)
     REGISTRY.register(rds_collector)
-    start_wsgi_server(port=args.port)
-    print(f"Start listening on port {args.port}")
 
-    while True:
+    start_wsgi_server(port=args.port)
+    print(f"Listening on port {args.port}")
+
+    signal.signal(signal.SIGINT, handler_stop_signals)
+    signal.signal(signal.SIGTERM, handler_stop_signals)
+
+    while run:
         time.sleep(1)
+
+    print("Exiting gracefully")
 
 
 if __name__ == '__main__':
