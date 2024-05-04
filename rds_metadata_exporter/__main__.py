@@ -73,7 +73,7 @@ def main():
     parser.add_argument('--profile', help='optional profile')
     parser.add_argument('-r', '--region', help='optional profile')
     parser.add_argument('dbinstance')
-    parser.add_argument('-p', '--port', default=8000)
+    parser.add_argument('-p', '--port', type=int, default=8000)
     args = parser.parse_args()
 
     print(f"rds-metadata-exporter started with arguments {args}")
