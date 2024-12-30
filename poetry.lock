@@ -46,13 +46,13 @@ uvloop = ["uvloop (>=0.15.2)"]
 
 [[package]]
 name = "botocore"
-version = "1.35.86"
+version = "1.35.90"
 description = "Low-level, data-driven core of boto 3."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "botocore-1.35.86-py3-none-any.whl", hash = "sha256:77cb4b445e4f424f956c68c688bd3ad527f4d214d51d67ffc8e245f4476d7de0"},
-    {file = "botocore-1.35.86.tar.gz", hash = "sha256:951e944eb30284b4593d4da98f70f7b5292ea237e4de0c5a2852946a549b8347"},
+    {file = "botocore-1.35.90-py3-none-any.whl", hash = "sha256:51dcbe1b32e2ac43dac17091f401a00ce5939f76afe999081802009cce1e92e4"},
+    {file = "botocore-1.35.90.tar.gz", hash = "sha256:f007f58e8e3c1ad0412a6ddfae40ed92a7bca571c068cb959902bcf107f2ae48"},
 ]
 
 [package.dependencies]
@@ -546,13 +546,13 @@ syntax = ["tree-sitter (>=0.20.1,<0.21.0)", "tree-sitter-languages (==1.10.2)"]
 
 [[package]]
 name = "types-pyyaml"
-version = "6.0.12.20241221"
+version = "6.0.12.20241230"
 description = "Typing stubs for PyYAML"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "types_PyYAML-6.0.12.20241221-py3-none-any.whl", hash = "sha256:0657a4ff8411a030a2116a196e8e008ea679696b5b1a8e1a6aa8ebb737b34688"},
-    {file = "types_pyyaml-6.0.12.20241221.tar.gz", hash = "sha256:4f149aa893ff6a46889a30af4c794b23833014c469cc57cbc3ad77498a58996f"},
+    {file = "types_PyYAML-6.0.12.20241230-py3-none-any.whl", hash = "sha256:fa4d32565219b68e6dee5f67534c722e53c00d1cfc09c435ef04d7353e1e96e6"},
+    {file = "types_pyyaml-6.0.12.20241230.tar.gz", hash = "sha256:7f07622dbd34bb9c8b264fe860a17e0efcad00d50b5f27e93984909d9363498c"},
 ]
 
 [[package]]
@@ -600,4 +600,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "0a5cf334afa55f6f392168d8b44490b5a351d92a44cc8617d98da293abcb898b"
+content-hash = "2b40cc249e54ff56a20b95200d29ac91ea577aff78bc2d9d46d63c50d953382b"
