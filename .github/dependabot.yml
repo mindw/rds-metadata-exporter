@@ -1,15 +1,15 @@
 version: 2
 updates:
-- package-ecosystem: "pip"
+- package-ecosystem: pip
   directory: "/"
   schedule:
-    interval: weekly
+    interval: monthly
   groups:
     python-dependencies:
       # A pattern can be...
       patterns:
-      - '*'    
-- package-ecosystem: "github-actions"
-  directory: ".github/"
+      - '*'
+- package-ecosystem: github-actions
+  directory: "/"
   schedule:
-    interval: weekly
+    interval: monthly
