@@ -9,19 +9,19 @@ package-mode = false
 [tool.poetry.dependencies]
 python = "^3.12"
 prometheus-client = "^0.23.1"
-botocore = "^1.40.42"
+botocore = "^1.40.64"
 
 [tool.poetry.group.dev.dependencies]
 black = "^25.9.0"
 mypy = "^1.18.2"
-ruff = "^0.13.2"
+ruff = "^0.14.3"
 #pytest = "~7.4.4"
 #coverage = { version = "~7.3.2", extras = ["toml"] }
 #pytest-asyncio = "~0.23.6"
 #pytest-kubernetes = "~0.3.0"
 #types-requests = "^2.31.0.2"
 types-pyyaml = "^6.0.12.20250915"
-memray = "^1.18.0"
+memray = "^1.19.1"
 
 [build-system]
 requires = ["poetry-core>=1.8.2,<2"]
