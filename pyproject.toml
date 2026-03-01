@@ -9,12 +9,12 @@ package-mode = false
 [tool.poetry.dependencies]
 python = "^3.12"
 prometheus-client = "^0.24.1"
-botocore = "^1.42.39"
+botocore = "^1.42.59"
 
 [tool.poetry.group.dev.dependencies]
 black = "^26.1.0"
 mypy = "^1.19.1"
-ruff = "^0.14.14"
+ruff = "^0.15.4"
 #pytest = "~7.4.4"
 #coverage = { version = "~7.3.2", extras = ["toml"] }
 #pytest-asyncio = "~0.23.6"
