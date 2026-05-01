@@ -8,7 +8,7 @@ package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.12"
-prometheus-client = "^0.24.1"
+prometheus-client = ">=0.24.1,<0.26.0"
 botocore = "^1.42.80"
 
 [tool.poetry.group.dev.dependencies]
