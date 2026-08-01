@@ -8,13 +8,13 @@ package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.12"
-prometheus-client = ">=0.24.1,<0.26.0"
+prometheus-client = ">=0.24.1,<0.27.0"
 botocore = "^1.42.80"
 
 [tool.poetry.group.dev.dependencies]
 black = "^26.3.1"
 mypy = ">=1.20,<3.0"
-ruff = "^0.15.8"
+ruff = ">=0.15.8,<0.17.0"
 #pytest = "~7.4.4"
 #coverage = { version = "~7.3.2", extras = ["toml"] }
 #pytest-asyncio = "~0.23.6"
